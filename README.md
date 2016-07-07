@@ -8,7 +8,7 @@ UTF-8コードに対応する漢字フォントデータの取得を可能にし
 本ライブラリはESP-WROOM-02での動作を確認しています。  
 
 ## ライブラリ名称
-**spsfonts** (ヘッダーファイル spsfonts.h)
+**espfonts** (ヘッダーファイル spsfonts.h)
 
 
 ## 特徴
@@ -51,7 +51,7 @@ UTF-8コードに対応する漢字フォントデータの取得を可能にし
 |24x24         |X11R6フォント    |6877          |
 
 ## インストール
-* /liblary/sosfonts フォルダをArduinoのliblaryにコピーする。  
+* /liblary/espfonts フォルダをArduinoのliblaryにコピーする。  
 * /fontbin フォルダ内の FONT.BINをESP8266のSPIFFSにアップロードする。  
   アップロード方法については、下記を参照して下さい。  
    - ESP8266 Arduino Core /  File System / Uploading files to file system  
@@ -59,11 +59,11 @@ UTF-8コードに対応する漢字フォントデータの取得を可能にし
 
 ## ライブラリリファレンス
 ライブラリはオブジェクトとして実装しています。 
-グローバルオブジェクト **SPSfonts**のメンバー関数を呼び出すことにより、  
+グローバルオブジェクト **ESPfonts**のメンバー関数を呼び出すことにより、  
 機能利用することが出来ます。  
 
 **ヘッダファイル**  
-   `#include <spsfonts.h>`
+   `#include <espfonts.h>`
 
 **定数一覧**  
 
@@ -82,7 +82,7 @@ UTF-8コードに対応する漢字フォントデータの取得を可能にし
 
 
 **グローバルオブジェクト**  
-`extern spsfonts SPSfonts;`
+`extern espfonts ESPfonts;`
 
 **メンバー関数一覧**  
 - 初期化  
@@ -147,12 +147,12 @@ UTF-8コードに対応する漢字フォントデータの取得を可能にし
 
 **クラスメンバー関数一覧**  
 - UTF8文字(1～3バイト)をUTF16に変換する   
-  `static uint8_t sdfonts::charUFT8toUTF16(uint16_t *pUTF16,char *pUTF8 )`    
+  `static uint8_t espfonts::charUFT8toUTF16(uint16_t *pUTF16,char *pUTF8 )`    
   pUTF8で指定したUTF8文字をUTF16文字に変換しpUTF16に格納します。  
   戻り値として、変換処理したUTF8文字バイト数、0の場合は変換失敗を返します。   
 
 - UTF8文字列をUTF16文字列に変換する  
-  `static uint8_t sdfonts::Utf8ToUtf16(uint16_t* pUTF16, char *pUTF8)`  
+  `static uint8_t espfonts::Utf8ToUtf16(uint16_t* pUTF16, char *pUTF8)`  
   pUTF8で指定したUTF8文字列をUTF16文字列に変換しpUTF16に格納します。  
   戻り値として、UFT16文字長さ (変換失敗時は-1を返す)を返します。  
   
