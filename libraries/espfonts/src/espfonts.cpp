@@ -7,6 +7,7 @@
 // 修正 2016/05/19 by たま吉さん, グラフィック液晶用フォントモードの追加(setLCDMode()関数追加)
 // 修正 2016/06/26 by たま吉さん, ESP8266対応(ARDUINO_ARCH_AVRの判定追加),read_code()の不具合対応
 // 修正 2016/12/15 findcode()の不具合対応(flg_stopの初期値を-1から0に訂正)
+// 修正 2017/03/22 by たま吉さん, getFontData()の不具合対応(0x3000以下の全角文字が取得できなかった)
 //
 
 #define MYDEBUG 0 
@@ -256,7 +257,7 @@ boolean espfonts::getFontData(byte* fontdata, uint16_t utf16) {
   }
   
  // 文字コードから全角、半角を判定する
- if (utf16 < 0x3000) {
+ if (utf16 < 0x100) {
      switch (utf16) {
        case 0x5C:
        case 0xA2:
